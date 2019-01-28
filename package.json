@@ -1,0 +1,49 @@
+{
+  "name": "marvina-slider-react",
+  "version": "1.0.0",
+  "description": "React version of Marvina Slider",
+  "keywords": [
+    "typescript",
+    "javascript",
+    "react",
+    "slider",
+    "image"
+  ],
+  "author": {
+    "name": "Cevad Tokatli",
+    "email": "cevadtokatli@hotmail.com",
+    "url": "http://cevadtokatli.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cevadtokatli/marvina-slider-react"
+  },
+  "files": [
+    "src",
+    "dist",
+    "types",
+    "gulpfile.js",
+    "tsconfig.json"
+  ],
+  "license": "MIT",
+  "main": "dist/js/marvina-slider.min.js",
+  "module": "dist/js/marvina-slider.esm.js",
+  "typings": "types/index.d.ts",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
+    "react": "^16.7.0",
+    "rollup": "^1.1.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-replace": "^2.1.0",
+    "rollup-plugin-typescript": "^1.0.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "@types/react": "^16.7.21",
+    "marvina-slider": "^1.0.4"
+  }
+}
