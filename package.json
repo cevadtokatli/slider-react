@@ -44,6 +44,6 @@
   },
   "dependencies": {
     "@types/react": "^16.7.21",
-    "marvina-slider": "^1.0.4"
+    "marvina-slider": "^1.0.8"
   }
 }
