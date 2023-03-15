@@ -1,46 +1,45 @@
-# Marvina Slider React
-React integration for [Marvina Slider.](https://github.com/cevadtokatli/marvina-slider)
+# Slider React
 
-## NPM
-```
-npm install -–save-dev marvina-slider-react
-```
-
-## Yarn
-```
-yarn add marvina-slider-react --dev
-```
+React integration for [Slider.](https://github.com/cevadtokatli/slider)
 
 ## Installation
+
+It is available as a package on NPM for use with a module bundler.
+
+```sh
+# NPM
+$ npm install --save @cevad-tokatli/slider-react
+
+# Yarn
+$ yarn add @cevad-tokatli/slider-react
 ```
-import React from 'react';
-import * as Marvina from 'marvina-slider-react';
+
+## Usage
+
+```ts
+import '@cevad-tokatli/slider/style.css'
+import React from 'react'
+import Slider, { Element } from '@cevad-tokatli/slider-react'
 
 export default class App extends React.Component {
-    render() {
-        return(
-            <div>
-                <Marvina.Slider>                
-                    <Marvina.Element>
-                        <img src="img1.jpg" />
-                    </Marvina.Element>
-                    <Marvina.Element>
-                        <img src="img2.jpg" />
-                    </Marvina.Element>
-                    <Marvina.Element>
-                        <img src="img3.jpg" />
-                    </Marvina.Element>
-                </Marvina.Slider>
-            </div>
-        );
-    }
+  render() {
+    return(
+      <div>
+        <Slider>                
+          <Element>
+            <img src="img1.jpg" />
+          </Element>
+          <Element>
+            <img src="img2.jpg" />
+          </Element>
+          <Element>
+            <img src="img3.jpg" />
+          </Element>
+        </Slider>
+      </div>
+    )
+  }
 }
-
-```
-
-Add the css file.
-```
-<link rel="stylesheet" href="/node_modules/marvina-slider-react/dist/css/marvina-slider.min.css" />
 ```
 
 ### Options
@@ -61,44 +60,46 @@ autoPlaySpeed | number | 5000 | Sets auto play interval. *(as milliseconds)*
 
 <span style="font-size:.9rem;">*: You can give an HTML element or a CSS selector (like `#carousel`, `.container > div:first-child`)</span>
 
-```
-    render() {
-        return(
-            <div>
-                <Marvina.Slider
-                    timing="linear"
-                    sliderType={Marvina.SliderType.Fade}
-                >                
-                    <Marvina.Element
-                        sliderType={Marvina.SliderType.Flow}
-                    >
-                        <img src="img1.jpg" />
-                    </Marvina.Element>
-                    <Marvina.Element>
-                        <img src="img2.jpg" />
-                    </Marvina.Element>
-                    <Marvina.Element
-                        sliderType={Marvina.SliderType.Carousel}
-                    >
-                        <img src="img3.jpg" />
-                    </Marvina.Element>
-                    <Marvina.Element>
-                        <img src="img4.jpg" />
-                    </Marvina.Element>
-                </Marvina.Slider>
-            </div>
-        );
-    }
+```ts
+  import Slider, { Element, SliderType } from '@cevad-tokatli/slider-react'
+
+  render() {
+    return (
+      <div>
+        <Slider
+            timing="linear"
+            sliderType={SliderType.Fade}
+        >                
+          <Element
+              sliderType={SliderType.Flow}
+          >
+              <img src="img1.jpg" />
+          </Element>
+          <Element>
+              <img src="img2.jpg" />
+          </Element>
+          <Element
+              sliderType={SliderType.Carousel}
+          >
+              <img src="img3.jpg" />
+          </Element>
+          <Element>
+              <img src="img4.jpg" />
+          </Element>
+        </Slider>
+      </div>
+    )
+  }
 
 ```
 
 #### Slider Element
 It is a object which specifies one single slider element. It has the following attributes.
-* el: HTMLElement;
-* wrapperEl: HTMLDivElement;
-* sliderType: SliderType;
-* before: (el:SliderElement, active:boolean) => Promise<void>;
-* after: (el:SliderElement, active:boolean) => Promise<void>;
+* el: HTMLElement
+* wrapperEl: HTMLDivElement
+* sliderType: SliderType
+* before: (el:SliderElement, active:boolean) => Promise<void>
+* after: (el:SliderElement, active:boolean) => Promise<void>
 
 #### Slider Type
 Specfies the slider animation type.
@@ -111,7 +112,7 @@ You can declare your list as a slider list.
 * It can be a ul or ol element. 
 * It can be anywhere in the body.
 * List is updated when index is changed.
-* Assigns ms-active class to list element that holds the current index.
+* Assigns ct-s-active class to list element that holds the current index.
 
 #### Callbacks
 
@@ -122,33 +123,33 @@ It is invoked before animation runs. It returns a promise so that animation wait
 It is invoked after animation runs. It returns a promise so before the method completes running, another animation cannot run. 
 
 You can pass callbacks as props Slider component or to specify for one element to Element component.
-```
-    before(current, next) {
-        return new Promise(resolve => {
-            // ...
-            resolve();
-        });
-    }
+```ts
+  before(current, next) {
+    return new Promise(resolve => {
+      // ...
+      resolve()
+    })
+  }
 
-    render() {
-        return(
-            <div>
-                <Marvina.Slider
-                    before={this.before}
-                >                
-                    <Marvina.Element>
-                        <img src="img1.jpg" />
-                    </Marvina.Element>
-                    <Marvina.Element>
-                        <img src="img2.jpg" />
-                    </Marvina.Element>
-                    <Marvina.Element>
-                        <img src="img3.jpg" />
-                    </Marvina.Element>
-                </Marvina.Slider>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Slider
+          before={this.before}
+        >                
+          <Element>
+              <img src="img1.jpg" />
+          </Element>
+          <Element>
+              <img src="img2.jpg" />
+          </Element>
+          <Element>
+              <img src="img3.jpg" />
+          </Element>
+        </Slider>
+      </div>
+    )
+  }
 ```
 
 #### Callbacks For Specified Elements
@@ -159,33 +160,32 @@ It is invoked before animation runs. It returns a promise so that animation wait
 **after(el:SliderElement, active:boolean): Promise** \
 It is invoked after animation runs. It returns a promise so before the method completes runing, another animation cannot run.  It is only invoked when it is the current or previous element. If it is the current element, active is true.
 
+```ts
+  after(current, active) {
+    return new Promise(resolve => {
+        // ...
+        resolve()
+    })
+  }
 
-```
-    after(current, active) {
-        return new Promise(resolve => {
-            // ...
-            resolve();
-        });
-    }
-
-    render() {
-        return(
-            <div>
-                <Marvina.Slider>                
-                    <Marvina.Element
-                        after={this.after}
-                    >
-                        <img src="img1.jpg" />
-                    </Marvina.Element>
-                    <Marvina.Element>
-                        <img src="img2.jpg" />
-                    </Marvina.Element>
-                    <Marvina.Element>
-                        <img src="img3.jpg" />
-                    </Marvina.Element>
-                </Marvina.Slider>
-            </div>
-        );
+  render() {
+    return (
+        <div>
+            <Slider>                
+                <Element
+                  after={this.after}
+                >
+                  <img src="img1.jpg" />
+                </Element>
+                <Element>
+                  <img src="img2.jpg" />
+                </Element>
+                <Element>
+                  <img src="img3.jpg" />
+                </Element>
+            </Slider>
+        </div>
+      )
     }
 ```
 
@@ -199,26 +199,26 @@ play | Fires when autoplay starts.
 stop | Fires when autoplay stops.
 destroy | Fires when the slider is destroyed.
 
-```
-    componentDidMount() {
-        this.slider.el.addEventListener('touchStart', () => {
-            console.log('touching starts');
-        });
+```ts
+  componentDidMount() {
+    this.slider.el.addEventListener('touchStart', () => {
+        console.log('touching starts')
+    })
 
-        this.slider.el.addEventListener('touchEnd', () => {
-            console.log('touching ends');
-        });
-    }
+    this.slider.el.addEventListener('touchEnd', () => {
+        console.log('touching ends')
+    })
+  }
 
-    render() {
-        return(
-            <div>
-                <Marvina.Slider ref={node => this.slider = node}>                
-                    // ...
-                </Marvina.Slider>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Slider ref={node => this.slider = node}>                
+            // ...
+        </Slider>
+      </div>
+    )
+  }
 
 ```
 
@@ -244,8 +244,5 @@ setAutoPlaySpeed | speed: number | void | Sets auto play speed.
 
 <span style="font-size:.9rem;">*: You can give an HTML element or a CSS selector (like `#carousel`, `.container > div:first-child`)</span>
 
-## IE Support
-IE 10 is not supported and patches to fix problems will not be accepted.
-
 ## License
-Marvina Slider React is provided under the MIT License.
+Slider React is provided under the MIT License.

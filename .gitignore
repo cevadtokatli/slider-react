@@ -1,3 +1,6 @@
-demo/
-yarn.lock
+.DS_Store
 node_modules/
+dist/
+lib/
+yarn.lock
+package-lock.json

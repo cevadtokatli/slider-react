@@ -1,16 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es5", "es2015", "dom", "scripthost"],
-    "sourceMap": false,
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "moduleResolution": "node",
-    "experimentalDecorators": true
+    "module": "CommonJS",
+    "skipLibCheck": true,
+    "target": "es2016"
   },
-  "types": [
-    "typePatches"
-  ],
-  "include": [
-    "./src/"
-  ]
+  "include": ["src/**/*.tsx"],
+  "exclude": ["node_modules"]
 }

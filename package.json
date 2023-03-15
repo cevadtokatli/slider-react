@@ -1,7 +1,9 @@
 {
-  "name": "marvina-slider-react",
+  "name": "@cevad-tokatli/slider-react",
   "version": "1.0.0",
-  "description": "React version of Marvina Slider",
+  "license": "MIT",
+  "main": "index.js",
+  "description": "React version of Slider",
   "keywords": [
     "typescript",
     "javascript",
@@ -11,39 +13,31 @@
   ],
   "author": {
     "name": "Cevad Tokatli",
-    "email": "cevadtokatli@hotmail.com",
-    "url": "http://cevadtokatli.com"
+    "email": "cevadtokatli@hotmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cevadtokatli/marvina-slider-react"
+    "url": "https://github.com/cevadtokatli/slider-react"
   },
-  "files": [
-    "src",
-    "dist",
-    "types",
-    "gulpfile.js",
-    "tsconfig.json"
-  ],
-  "license": "MIT",
-  "main": "dist/js/marvina-slider.min.js",
-  "module": "dist/js/marvina-slider.esm.js",
-  "typings": "types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn clear && tsc --outDir lib && yarn copy",
+    "clear": "rm -rf lib",
+    "copy": "cp README.md lib/README.md && cp package.json lib/package.json && cp LICENSE lib/LICENSE",
+    "dev": "tsc -w --outDir lib",
+    "release": "yarn build && cd lib && yarn publish"
+  },
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-uglify": "^3.0.1",
-    "react": "^16.7.0",
-    "rollup": "^1.1.2",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-replace": "^2.1.0",
-    "rollup-plugin-typescript": "^1.0.0",
-    "tslib": "^1.9.3",
-    "typescript": "^3.2.4"
+    "@types/react": "18.0.19",
+    "react": "18.2.0",
+    "typescript": "4.8.3"
   },
   "dependencies": {
-    "@types/react": "^16.7.21",
-    "marvina-slider": "^1.0.8"
+    "@cevad-tokatli/slider": "1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
   }
 }
